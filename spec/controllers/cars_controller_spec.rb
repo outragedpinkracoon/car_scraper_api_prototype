@@ -12,7 +12,7 @@ RSpec.describe CarsController, type: :controller do
       end
     end
 
-    it 'returns a list of used cars' do
+    xit 'returns a list of used cars' do
       VCR.use_cassette('arnold_clark_used_cars') do
         VCR.use_cassette('specific_used_car') do
           get :index
