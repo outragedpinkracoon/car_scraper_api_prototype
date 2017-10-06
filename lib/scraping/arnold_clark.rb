@@ -31,7 +31,7 @@ module Scraping
     end
 
     def car_page_link
-      link = first_car_html.css('.ac-vehicle__title a')[0]["href"]
+      link = first_car_html.css('.ac-vehicle__title a')[0]['href']
       "https://www.arnoldclark.com#{link}"
     end
 
