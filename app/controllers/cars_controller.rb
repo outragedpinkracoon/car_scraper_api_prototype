@@ -1,4 +1,4 @@
-require_relative '../../lib/scraping/arnold_clark'
+require_relative '../../lib/scraping/arnold_clark/used_cars'
 
 class CarsController < ApplicationController
   def index
@@ -6,6 +6,6 @@ class CarsController < ApplicationController
   end
 
   def result
-    Scraping::ArnoldClark.call
+    Scraping::ArnoldClark::UsedCars.call
   end
 end

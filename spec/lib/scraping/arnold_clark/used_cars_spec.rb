@@ -1,6 +1,6 @@
-require_relative '../../../lib/scraping/arnold_clark'
+require_relative '../../../../lib/scraping/arnold_clark/used_cars'
 
-RSpec.describe Scraping::ArnoldClark do
+RSpec.describe Scraping::ArnoldClark::UsedCars do
   let(:subject) { described_class.call.first }
 
   it 'returns the car model' do
