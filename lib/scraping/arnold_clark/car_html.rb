@@ -21,6 +21,17 @@ module Scraping
         @subtitle ||= car_html.css('.ac-vehicle__title-variant').text
       end
 
+      def search_product_summary(text)
+        result = product_summary.xpath(
+          "//th[text()='#{text}']/following-sibling::td/text()[1]"
+        )
+        result[0].text
+      end
+
+      def price
+        car_html.css('.ac-money')
+      end
+
       private
 
       def car_html

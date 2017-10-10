@@ -17,12 +17,19 @@ module Scraping
             model: car_model,
             year: car_year,
             engine_cc: car_engine_cc,
-            engine_litres: car_engine_litres
+            engine_litres: car_engine_litres,
+            gearbox_type: car_gearbox_type,
+            mpg: car_mpg,
+            price: car_price
           }
         ]
       end
 
       private
+
+      def car_price
+        price[0].text.sub('£', '').to_i
+      end
 
       def car_model
         last_index = title_parts.length - 1
@@ -34,10 +41,16 @@ module Scraping
       end
 
       def car_engine_cc
-        engine_node = product_summary.xpath(
-          "//th[text()='Engine']/following-sibling::td/text()[1]"
-        )
-        engine_node.text.sub('cc', '').to_i
+        engine_node = search_product_summary('Engine')
+        engine_node.sub('cc', '').to_i
+      end
+
+      def car_gearbox_type
+        search_product_summary('Gears')
+      end
+
+      def car_mpg
+        search_product_summary('MPG (combined)').to_f
       end
 
       def car_engine_litres

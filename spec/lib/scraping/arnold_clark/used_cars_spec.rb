@@ -15,6 +15,24 @@ RSpec.describe Scraping::ArnoldClark::UsedCars do
     end
   end
 
+  it 'returns the car price' do
+    wrap_vcr do
+      expect(subject[:price]).to eq(7698)
+    end
+  end
+
+  it 'returns the car gearbox type' do
+    wrap_vcr do
+      expect(subject[:gearbox_type]).to eq('Manual')
+    end
+  end
+
+  it 'returns the car mpg' do
+    wrap_vcr do
+      expect(subject[:mpg]).to eq(72.4)
+    end
+  end
+
   describe 'car engine size' do
     it 'returns the car engine size in litres' do
       wrap_vcr do
