@@ -3,11 +3,13 @@ require 'open-uri'
 
 require_relative '../../common/callable'
 require_relative 'used_cars_request'
+require_relative 'car_html'
 
 module Scraping
   module ArnoldClark
     class UsedCars
       extend Callable
+      include CarHTML
 
       def call
         [
@@ -40,30 +42,6 @@ module Scraping
 
       def car_engine_litres
         (car_engine_cc.to_f / 1000).round(1)
-      end
-
-      def product_summary
-        car_html.css('.ac-product__summary')
-      end
-
-      def title_parts
-        @title_parts ||= title.split(' ')
-      end
-
-      def title
-        full_title.sub(subtitle, '')
-      end
-
-      def full_title
-        car_html.css('.ac-vehicle__title').text
-      end
-
-      def subtitle
-        car_html.css('.ac-vehicle__title-variant').text
-      end
-
-      def car_html
-        @car_html ||= UsedCarsRequest.call
       end
     end
   end
