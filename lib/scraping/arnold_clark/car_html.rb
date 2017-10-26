@@ -1,6 +1,10 @@
 module Scraping
   module ArnoldClark
     class CarHTML
+      def query_for_car(car_index)
+        @car_index = car_index
+      end
+
       def product_summary
         @product_summary ||= car_page.css('.ac-product__summary')
       end
@@ -34,8 +38,10 @@ module Scraping
 
       private
 
+      attr_reader :car_index
+
       def car_page
-        @car_page ||= UsedCarsRequest.new.car_page(0)
+        @car_page ||= UsedCarsRequest.new.car_page(car_index || 0)
       end
     end
   end

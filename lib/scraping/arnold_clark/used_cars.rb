@@ -60,6 +60,8 @@ module Scraping
 
       def car_html
         @car_html ||= CarHTML.new
+        @car_html.query_for_car(0)
+        @car_html
       end
     end
   end
