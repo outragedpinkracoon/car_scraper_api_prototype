@@ -1,8 +1,8 @@
 module Scraping
   module ArnoldClark
-    module CarHTML
+    class CarHTML
       def product_summary
-        @product_summary ||= car_html.css('.ac-product__summary')
+        @product_summary ||= car_page.css('.ac-product__summary')
       end
 
       def title_parts
@@ -14,11 +14,11 @@ module Scraping
       end
 
       def full_title
-        @full_title ||= car_html.css('.ac-vehicle__title').text
+        @full_title ||= car_page.css('.ac-vehicle__title').text
       end
 
       def subtitle
-        @subtitle ||= car_html.css('.ac-vehicle__title-variant').text
+        @subtitle ||= car_page.css('.ac-vehicle__title-variant').text
       end
 
       def search_product_summary(text)
@@ -29,13 +29,13 @@ module Scraping
       end
 
       def price
-        car_html.css('.ac-money')
+        car_page.css('.ac-money')
       end
 
       private
 
-      def car_html
-        @car_html ||= UsedCarsRequest.new.html_for_car(0)
+      def car_page
+        @car_page ||= UsedCarsRequest.new.car_page(0)
       end
     end
   end

@@ -1,18 +1,17 @@
 module Scraping
   module ArnoldClark
     class UsedCarsRequest
-      extend Callable
 
-      def html_for_car(car_index)
+      def car_page(car_index)
         @car_index = car_index
-        car_page
+        request_car_page
       end
 
       private
 
       attr_reader :car_index
 
-      def car_page
+      def request_car_page
         @car_page ||= Nokogiri::HTML(
           open(
             car_page_link
