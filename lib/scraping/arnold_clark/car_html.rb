@@ -35,7 +35,7 @@ module Scraping
       private
 
       def car_html
-        @car_html ||= UsedCarsRequest.call
+        @car_html ||= UsedCarsRequest.new.html_for_car(0)
       end
     end
   end

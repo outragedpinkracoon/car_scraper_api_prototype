@@ -6,6 +6,6 @@ class CarsController < ApplicationController
   end
 
   def result
-    Scraping::ArnoldClark::UsedCars.call
+
   end
 end

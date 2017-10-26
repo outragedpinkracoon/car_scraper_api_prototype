@@ -3,23 +3,30 @@ module Scraping
     class UsedCarsRequest
       extend Callable
 
-      def call
+      def html_for_car(car_index)
+        @car_index = car_index
         car_page
       end
 
       private
 
+      attr_reader :car_index
+
       def car_page
-        @car_page ||= Nokogiri::HTML(open(car_page_link))
+        @car_page ||= Nokogiri::HTML(
+          open(
+            car_page_link
+          )
+        )
       end
 
       def car_page_link
-        path = first_car_html.css('.ac-vehicle__title a')[0]['href']
+        path = car_html.css('.ac-vehicle__title a')[0]['href']
         "https://www.arnoldclark.com#{path}"
       end
 
-      def first_car_html
-        index_page.css('.ac-result').first
+      def car_html
+        index_page.css('.ac-result')[car_index]
       end
 
       def index_page
