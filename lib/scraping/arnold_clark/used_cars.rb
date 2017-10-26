@@ -11,12 +11,12 @@ module Scraping
       extend Callable
       include CarHTML
 
+      # rubocop:disable Metrics/MethodLength
       def call
         [
           {
             model: car_model,
             year: car_year,
-            engine_cc: car_engine_cc,
             engine_litres: car_engine_litres,
             gearbox_type: car_gearbox_type,
             mpg: car_mpg,
@@ -24,6 +24,7 @@ module Scraping
           }
         ]
       end
+      # rubocop:enable Metrics/MethodLength
 
       private
 

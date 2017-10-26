@@ -39,12 +39,6 @@ RSpec.describe Scraping::ArnoldClark::UsedCars do
         expect(subject[:engine_litres]).to eq(1.6)
       end
     end
-
-    it 'returns the car engine size in cc' do
-      wrap_vcr do
-        expect(subject[:engine_cc]).to eq(1560)
-      end
-    end
   end
 
   def wrap_vcr
@@ -54,5 +48,4 @@ RSpec.describe Scraping::ArnoldClark::UsedCars do
       end
     end
   end
-
 end

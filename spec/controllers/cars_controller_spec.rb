@@ -20,12 +20,12 @@ RSpec.describe CarsController, type: :controller do
             'data' =>  {
               'cars' =>  [
                 {
-                  'make' => 'fiat',
-                  'model' => 'panda',
-                  'price' => 6000,
-                  'mileage' => 5000,
-                  'engine' => '1.6 tdi',
-                  'year' => 2015
+                  model: 'Citroen C3 Picasso',
+                  year: '2016',
+                  engine_litres: 1.6,
+                  gearbox_type: 'Manual',
+                  mpg: 72.4,
+                  price: 7698
                 }
               ]
             }
