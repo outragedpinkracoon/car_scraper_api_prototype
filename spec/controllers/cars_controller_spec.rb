@@ -5,7 +5,7 @@ RSpec.describe CarsController, type: :controller do
   describe '#index' do
     it 'is successful' do
       VCR.use_cassette('arnold_clark_used_cars') do
-        VCR.use_cassette('specific_used_car') do
+        VCR.use_cassette('specific_used_car_0') do
           get :index
           expect(response).to be_successful
         end
@@ -14,7 +14,7 @@ RSpec.describe CarsController, type: :controller do
 
     xit 'returns a list of used cars' do
       VCR.use_cassette('arnold_clark_used_cars') do
-        VCR.use_cassette('specific_used_car') do
+        VCR.use_cassette('specific_used_car_0') do
           get :index
           expected_response = {
             'data' =>  {

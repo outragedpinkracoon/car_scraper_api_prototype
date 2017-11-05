@@ -43,7 +43,7 @@ RSpec.describe Scraping::ArnoldClark::UsedCar do
 
   def wrap_vcr
     VCR.use_cassette('arnold_clark_used_cars') do
-      VCR.use_cassette('specific_used_car') do
+      VCR.use_cassette('specific_used_car_0') do
         yield
       end
     end
