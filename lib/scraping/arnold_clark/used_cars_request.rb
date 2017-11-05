@@ -31,7 +31,7 @@ module Scraping
       end
 
       def car_html
-        index_page.css('.ac-result')[1]
+        index_page.css('.ac-result')[car_index]
       end
 
       def index_page
