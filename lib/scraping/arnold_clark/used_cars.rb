@@ -9,7 +9,6 @@ module Scraping
   module ArnoldClark
     class UsedCars
       extend Callable
-      # rubocop:disable Metrics/MethodLength
       def call
         [
           {
@@ -22,11 +21,8 @@ module Scraping
           }
         ]
       end
-      # rubocop:enable Metrics/MethodLength
 
       private
-
-      attr_reader :car_html
 
       def car_price
         car_html.price[0].text.sub('£', '').to_i
@@ -59,9 +55,7 @@ module Scraping
       end
 
       def car_html
-        @car_html ||= CarHTML.new
-        @car_html.query_for_car(0)
-        @car_html
+        @car_html ||= CarHTML.new(car_index: 0)
       end
     end
   end

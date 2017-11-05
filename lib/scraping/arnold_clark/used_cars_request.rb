@@ -1,9 +1,13 @@
 module Scraping
   module ArnoldClark
     class UsedCarsRequest
+      extend Callable
 
-      def car_page(car_index)
+      def initialize(car_index)
         @car_index = car_index
+      end
+
+      def call
         request_car_page
       end
 
