@@ -3,17 +3,18 @@ require 'vcr'
 
 RSpec.describe CarsController, type: :controller do
   describe '#index' do
-    it 'is successful' do
-      VCR.use_cassette('used_car_list') do
-        get :used, params: { 'max' => '2' }
+    let(:perform) { get :used, params: { 'max' => '2' } }
 
+    it 'is successful' do
+      wrap_vcr do
+        perform
         expect(response).to be_successful
       end
     end
 
     it 'returns a list of used cars' do
-      VCR.use_cassette('used_car_list') do
-        get :used, params: { 'max' => '2' }
+      wrap_vcr do
+        perform
 
         expected_response = {
           'used_cars' =>  [
@@ -39,6 +40,12 @@ RSpec.describe CarsController, type: :controller do
 
     def response_body
       JSON.parse(response.body)
+    end
+
+    def wrap_vcr
+      VCR.use_cassette('used_car_list') do
+        yield
+      end
     end
   end
 end
