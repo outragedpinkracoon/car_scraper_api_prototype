@@ -5,7 +5,5 @@ class CarsController < ApplicationController
     render json: result
   end
 
-  def result
-
-  end
+  def result; end
 end

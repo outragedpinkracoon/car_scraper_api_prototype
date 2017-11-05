@@ -1,7 +1,6 @@
 module Scraping
   module ArnoldClark
     class CarHTML
-
       def initialize(car_index:)
         @car_index = car_index
       end
