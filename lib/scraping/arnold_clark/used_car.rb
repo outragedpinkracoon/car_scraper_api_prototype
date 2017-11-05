@@ -19,7 +19,6 @@ module Scraping
           model: car_model,
           year: car_year,
           engine_litres: car_engine_litres,
-          gearbox_type: car_gearbox_type,
           mpg: car_mpg,
           price: car_price
         }
@@ -45,10 +44,6 @@ module Scraping
       def car_engine_cc
         engine_node = car_html.search_product_summary('Engine')
         engine_node.sub('cc', '').to_i
-      end
-
-      def car_gearbox_type
-        car_html.search_product_summary('Gears')
       end
 
       def car_mpg

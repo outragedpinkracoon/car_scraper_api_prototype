@@ -21,12 +21,6 @@ RSpec.describe Scraping::ArnoldClark::UsedCar do
     end
   end
 
-  it 'returns the car gearbox type' do
-    wrap_vcr do
-      expect(subject[:gearbox_type]).to eq('Manual')
-    end
-  end
-
   it 'returns the car mpg' do
     wrap_vcr do
       expect(subject[:mpg]).to eq(76.3)

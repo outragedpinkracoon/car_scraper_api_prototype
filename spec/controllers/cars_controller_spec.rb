@@ -21,7 +21,6 @@ RSpec.describe CarsController, type: :controller do
               'model' => 'Peugeot 2008',
               'year' => '2015',
               'engine_litres' => 1.6,
-              'gearbox_type' => 'Manual',
               'mpg' => 76.3,
               'price' => 8698
             },
@@ -29,7 +28,6 @@ RSpec.describe CarsController, type: :controller do
               'model' => 'Citroen C4 Cactus',
               'year' => '2016',
               'engine_litres' => 1.6,
-              'gearbox_type' => 'Manual',
               'mpg' => 80.7,
               'price' => 8998
             }
