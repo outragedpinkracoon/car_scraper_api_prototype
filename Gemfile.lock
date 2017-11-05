@@ -161,7 +161,6 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rspec-rails (~> 3.6.1)
-  spring
   spring-commands-rspec (~> 1.0.4)
   spring-watcher-listen (~> 2.0.0)
   sqlite3

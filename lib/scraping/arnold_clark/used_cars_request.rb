@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 module Scraping
   module ArnoldClark
     class UsedCarsRequest

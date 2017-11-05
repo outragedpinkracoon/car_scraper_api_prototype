@@ -1,23 +1,23 @@
-require_relative '../../../../lib/scraping/arnold_clark/used_cars'
+require_relative '../../../../lib/scraping/arnold_clark/used_car'
 
 RSpec.describe Scraping::ArnoldClark::UsedCar do
   let(:subject) { described_class.call(car_index: 0) }
 
   it 'returns the car model' do
     wrap_vcr do
-      expect(subject[:model]).to eq('Citroen C3 Picasso')
+      expect(subject[:model]).to eq('Peugeot 2008')
     end
   end
 
   it 'returns the car year' do
     wrap_vcr do
-      expect(subject[:year]).to eq('2016')
+      expect(subject[:year]).to eq('2015')
     end
   end
 
   it 'returns the car price' do
     wrap_vcr do
-      expect(subject[:price]).to eq(7698)
+      expect(subject[:price]).to eq(8698)
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe Scraping::ArnoldClark::UsedCar do
 
   it 'returns the car mpg' do
     wrap_vcr do
-      expect(subject[:mpg]).to eq(72.4)
+      expect(subject[:mpg]).to eq(76.3)
     end
   end
 
@@ -42,10 +42,8 @@ RSpec.describe Scraping::ArnoldClark::UsedCar do
   end
 
   def wrap_vcr
-    VCR.use_cassette('arnold_clark_used_cars') do
-      VCR.use_cassette('specific_used_car_0') do
-        yield
-      end
+    VCR.use_cassette('specific_used_car_0') do
+      yield
     end
   end
 end

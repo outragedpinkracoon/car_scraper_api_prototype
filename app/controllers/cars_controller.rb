@@ -1,4 +1,4 @@
-require_relative '../../lib/scraping/arnold_clark/used_cars'
+require_relative '../../lib/scraping/arnold_clark/used_car'
 
 class CarsController < ApplicationController
   def index
