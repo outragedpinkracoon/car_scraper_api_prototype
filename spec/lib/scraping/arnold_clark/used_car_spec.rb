@@ -1,7 +1,7 @@
 require_relative '../../../../lib/scraping/arnold_clark/used_cars'
 
-RSpec.describe Scraping::ArnoldClark::UsedCars do
-  let(:subject) { described_class.call.first }
+RSpec.describe Scraping::ArnoldClark::UsedCar do
+  let(:subject) { described_class.call(car_index: 0) }
 
   it 'returns the car model' do
     wrap_vcr do

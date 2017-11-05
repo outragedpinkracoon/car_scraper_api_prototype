@@ -7,22 +7,27 @@ require_relative 'car_html'
 
 module Scraping
   module ArnoldClark
-    class UsedCars
+    class UsedCar
       extend Callable
+
+      def initialize(car_index:)
+        @car_index = car_index
+      end
+
       def call
-        [
-          {
-            model: car_model,
-            year: car_year,
-            engine_litres: car_engine_litres,
-            gearbox_type: car_gearbox_type,
-            mpg: car_mpg,
-            price: car_price
-          }
-        ]
+        {
+          model: car_model,
+          year: car_year,
+          engine_litres: car_engine_litres,
+          gearbox_type: car_gearbox_type,
+          mpg: car_mpg,
+          price: car_price
+        }
       end
 
       private
+
+      attr_reader :car_index
 
       def car_price
         car_html.price[0].text.sub('£', '').to_i
@@ -55,7 +60,7 @@ module Scraping
       end
 
       def car_html
-        @car_html ||= CarHTML.new(car_index: 0)
+        @car_html ||= CarHTML.new(car_index: car_index)
       end
     end
   end
