@@ -23,14 +23,16 @@ RSpec.describe CarsController, type: :controller do
               'year' => '2015',
               'engine_litres' => 1.6,
               'mpg' => 76.3,
-              'price' => 8698
+              'price' => 8698,
+              'image' => 'https://vcache.arnoldclark.com/imageserver/AKRENOE5L6-VUK5/800/f'
             },
             {
               'model' => 'Citroen C4 Cactus',
               'year' => '2016',
               'engine_litres' => 1.6,
               'mpg' => 80.7,
-              'price' => 8998
+              'price' => 8998,
+              'image' => 'https://vcache.arnoldclark.com/imageserver/ALRKNZH6D1-GUL2/800/f'
             }
           ]
         }

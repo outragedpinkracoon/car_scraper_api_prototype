@@ -25,6 +25,10 @@ module Scraping
         @subtitle ||= car_page.css('.ac-vehicle__title-variant').text
       end
 
+      def image_thumbnail
+        @image ||= car_page.css('.ac-imagethumbnail img').attribute('src').value
+      end
+
       def search_product_summary(text)
         result = product_summary.xpath(
           "//th[text()='#{text}']/following-sibling::td/text()[1]"

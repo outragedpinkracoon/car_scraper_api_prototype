@@ -20,7 +20,8 @@ module Scraping
           year: car_year,
           engine_litres: car_engine_litres,
           mpg: car_mpg,
-          price: car_price
+          price: car_price,
+          image: car_image
         }
       end
 
@@ -52,6 +53,10 @@ module Scraping
 
       def car_engine_litres
         (car_engine_cc.to_f / 1000).round(1)
+      end
+
+      def car_image
+        car_html.image_thumbnail
       end
 
       def car_html
