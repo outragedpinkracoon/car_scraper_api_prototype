@@ -1,0 +1,8 @@
+Fixes
+	✔ Make sure we only hit the index page once and then cache it in the rails cache @done (November 7th 2017, 22:10)
+	☐ Use redis or the DB or something that caches longer than the request lifecycle
+
+Features
+	☐ Get nearly new cars search
+	☐ Get the best buy car
+	☐ Compare a 3yo car to the car we have nearly new and work out depreciation
