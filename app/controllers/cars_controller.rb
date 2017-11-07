@@ -2,7 +2,6 @@ require_relative '../../lib/scraping/arnold_clark/used_cars'
 
 class CarsController < ApplicationController
   def used
-    # TODO: Only hit the index page once
     @number_of_cars = params[:max].to_i
     render json: result
   end

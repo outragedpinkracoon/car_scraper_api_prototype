@@ -35,7 +35,12 @@ module Scraping
       end
 
       def index_page
-        @index_page ||= Nokogiri::HTML(open(url))
+        cached = Rails.cache.read 'used_car_index'
+        return Nokogiri::HTML(cached) if cached
+
+        result = Nokogiri::HTML(open(url))
+        Rails.write 'used_car_index', result.to_s
+        result
       end
 
       def url
