@@ -1,6 +1,6 @@
 Fixes
 	✔ Make sure we only hit the index page once and then cache it in the rails cache @done (November 7th 2017, 22:10)
-	☐ Use redis or the DB or something that caches longer than the request lifecycle
+	☐ Figure out why the app is taking 3 seconds to return results
 
 Features
 	☐ Get nearly new cars search
