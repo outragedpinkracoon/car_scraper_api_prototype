@@ -39,7 +39,7 @@ module Scraping
         return Nokogiri::HTML(cached) if cached
 
         result = Nokogiri::HTML(open(url))
-        Rails.write 'used_car_index', result.to_s
+        Rails.cache.write 'used_car_index', result.to_s
         result
       end
 
