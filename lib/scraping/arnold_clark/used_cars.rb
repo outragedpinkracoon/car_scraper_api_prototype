@@ -10,7 +10,7 @@ module Scraping
       end
 
       def call
-        indices.to_a.map do |index|
+        Parallel.map(indices.to_a) do |index|
           UsedCar.call(car_index: index)
         end
       end

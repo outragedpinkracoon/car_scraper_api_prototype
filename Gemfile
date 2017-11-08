@@ -5,11 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'nokogiri', '~> 1.8.1'
+gem 'parallel', '~> 1.3'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
-
-gem 'nokogiri', '~> 1.8.1'
 gem 'sqlite3'
+
 
 group :test do
   gem 'rspec-rails', '~> 3.6.1'
