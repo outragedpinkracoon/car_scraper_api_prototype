@@ -1,4 +1,4 @@
-require_relative 'used_car'
+require_relative 'car'
 
 module Scraping
   module ArnoldClark
@@ -11,7 +11,7 @@ module Scraping
 
       def call
         Parallel.map(indices.to_a) do |index|
-          UsedCar.call(car_index: index)
+          Car.call(car_index: index)
         end
       end
 
