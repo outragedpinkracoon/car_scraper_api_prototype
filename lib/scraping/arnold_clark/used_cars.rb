@@ -11,7 +11,8 @@ module Scraping
 
       def call
         Parallel.map(indices.to_a) do |index|
-          Car.call(car_index: index)
+          car_page = UsedCarsRequest.call(index)
+          Car.call(car_page)
         end
       end
 

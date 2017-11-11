@@ -1,8 +1,8 @@
 module Scraping
   module ArnoldClark
     class CarHTML
-      def initialize(car_index:)
-        @car_index = car_index
+      def initialize(car_page)
+        @car_page = car_page
       end
 
       def product_summary
@@ -42,11 +42,7 @@ module Scraping
 
       private
 
-      attr_reader :car_index
-
-      def car_page
-        @car_page ||= UsedCarsRequest.call(car_index || 0)
-      end
+      attr_reader :car_page
     end
   end
 end
