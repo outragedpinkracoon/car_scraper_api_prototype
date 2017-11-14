@@ -1,14 +1,14 @@
 module Scraping
   module ArnoldClark
-    class UsedCarsRequest < CarsRequest
+    class NearlyNewCarsRequest < CarsRequest
       def cache_key
-        'used_car_index'
+        'nearly_new_car_index'
       end
 
       def url
         <<~URL
           https://www.arnoldclark.com/used-cars/search?
-          search_type=Used%20Cars&
+          search_type=Nearly%20New%20Cars&
           payment_type=cash&
           max_price=12000&
           location=Edinburgh%20EH17%2C%20UK&
@@ -17,8 +17,6 @@ module Scraping
           unreserved_only=true&
           transmission=Manual&
           mpg=50&
-          mileage=50000&
-          age=2&
           min_engine_size=1545&
           body_type%5B%5D=Hatchback&
           body_type%5B%5D=Estate&
@@ -26,7 +24,7 @@ module Scraping
           body_type%5B%5D=SUV&
           body_type%5B%5D=People%20carrier&
           doors%5B%5D=5&
-          sort_order=mileage
+          sort_order=price_up
         URL
       end
     end

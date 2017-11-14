@@ -12,7 +12,7 @@ RSpec.describe CarsController, type: :controller do
       end
     end
 
-    it 'returns a list of used cars' do
+    it 'returns a list of cars' do
       wrap_vcr do
         perform
 
@@ -31,8 +31,26 @@ RSpec.describe CarsController, type: :controller do
               'year' => '2016',
               'engine_litres' => 1.6,
               'mpg' => 80.7,
-              'price' => 8998,
+              'price' => 8798,
               'image' => 'https://vcache.arnoldclark.com/imageserver/ALRKNZH6D1-GUL2/800/f'
+            }
+          ],
+          'nearly_new_cars' =>  [
+            {
+              'model' => 'Citroen C4 Cactus',
+              'year' => '2017',
+              'engine_litres' => 1.6,
+              'mpg' => 78.5,
+              'price' => 9298,
+              'image' => 'https://vcache.arnoldclark.com/imageserver/APRWNFH6A6-JUK2/800/f'
+            },
+            {
+              'model' => 'Peugeot 208',
+              'year' => '2016',
+              'engine_litres' => 1.6,
+              'mpg' => 80.7,
+              'price' => 9498,
+              'image' => 'https://vcache.arnoldclark.com/imageserver/ALRDNFA6S6-SUK5/800/f'
             }
           ]
         }
@@ -45,7 +63,7 @@ RSpec.describe CarsController, type: :controller do
     end
 
     def wrap_vcr
-      VCR.use_cassette('used_car_list') do
+      VCR.use_cassette('car_lists') do
         yield
       end
     end
