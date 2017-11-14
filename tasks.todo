@@ -1,6 +1,7 @@
 Fixes
 	✔ Make sure we only hit the index page once and then cache it in the rails cache @done (November 7th 2017, 22:10)
 	✔ Figure out why the app is taking 3 seconds to return results @done (November 14th 2017, 21:56)
+	☐ Change the default index route to be more sensible (not used cars)
 
 Features
 	✔ Get nearly new cars search @done (November 14th 2017, 21:56)
