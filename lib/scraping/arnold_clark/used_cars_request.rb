@@ -1,4 +1,6 @@
+require 'net/http'
 require 'nokogiri'
+require 'open-uri'
 
 module Scraping
   module ArnoldClark
