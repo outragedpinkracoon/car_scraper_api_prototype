@@ -12,8 +12,8 @@ module Scraping
 
       def call
         indices.to_a.map do |index|
-          car_page = car_request.send(:call, index)
-          Car.call(car_page)
+          car_page_info = car_request.send(:call, index)
+          Car.call(car_page_info)
         end
       end
 

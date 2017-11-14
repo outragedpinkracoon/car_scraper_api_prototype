@@ -24,7 +24,8 @@ RSpec.describe CarsController, type: :controller do
               'engine_litres' => 1.6,
               'mpg' => 76.3,
               'price' => 8698,
-              'image' => 'https://vcache.arnoldclark.com/imageserver/AKRENOE5L6-VUK5/800/f'
+              'image' => 'https://vcache.arnoldclark.com/imageserver/AKRENOE5L6-VUK5/800/f',
+              'href' => 'https://www.arnoldclark.com/used-cars/peugeot/2008/1-6-bluehdi-75-active-5dr/2015/ref/arnel-u-567052'
             },
             {
               'model' => 'Citroen C4 Cactus',
@@ -32,7 +33,8 @@ RSpec.describe CarsController, type: :controller do
               'engine_litres' => 1.6,
               'mpg' => 80.7,
               'price' => 8798,
-              'image' => 'https://vcache.arnoldclark.com/imageserver/ALRKNZH6D1-GUL2/800/f'
+              'image' => 'https://vcache.arnoldclark.com/imageserver/ALRKNZH6D1-GUL2/800/f',
+              'href' => 'https://www.arnoldclark.com/used-cars/citroen/c4-cactus/1-6-bluehdi-flair-5dr/2016/ref/arnhd-u-22248'
             }
           ],
           'nearly_new_cars' =>  [
@@ -42,7 +44,8 @@ RSpec.describe CarsController, type: :controller do
               'engine_litres' => 1.6,
               'mpg' => 78.5,
               'price' => 9298,
-              'image' => 'https://vcache.arnoldclark.com/imageserver/APRWNFH6A6-JUK2/800/f'
+              'image' => 'https://vcache.arnoldclark.com/imageserver/APRWNFH6A6-JUK2/800/f',
+              'href' => 'https://www.arnoldclark.com/nearly-new-cars/citroen/c4-cactus/1-6-bluehdi-feel-5dr-non-start-stop/2017/ref/arnha-u-22707'
             },
             {
               'model' => 'Peugeot 208',
@@ -50,7 +53,8 @@ RSpec.describe CarsController, type: :controller do
               'engine_litres' => 1.6,
               'mpg' => 80.7,
               'price' => 9498,
-              'image' => 'https://vcache.arnoldclark.com/imageserver/ALRDNFA6S6-SUK5/800/f'
+              'image' => 'https://vcache.arnoldclark.com/imageserver/ALRDNFA6S6-SUK5/800/f',
+              'href' => 'https://www.arnoldclark.com/nearly-new-cars/peugeot/208/1-6-bluehdi-100-allure-5dr-non-start-stop/2016/ref/arnas-u-57724'
             }
           ]
         }

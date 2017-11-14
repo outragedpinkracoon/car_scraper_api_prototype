@@ -10,7 +10,6 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 
-
 group :test do
   gem 'rspec-rails', '~> 3.6.1'
   gem 'spring-commands-rspec', '~> 1.0.4'

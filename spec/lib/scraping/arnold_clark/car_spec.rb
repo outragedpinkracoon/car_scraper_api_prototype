@@ -20,6 +20,14 @@ RSpec.describe Scraping::ArnoldClark::Car do
     end
   end
 
+  it 'returns the link to the car' do
+    wrap_vcr do
+      expect(subject[:href]).to eq(
+        'https://www.arnoldclark.com/used-cars/peugeot/2008/1-6-bluehdi-75-active-5dr/2015/ref/arnel-u-567052'
+      )
+    end
+  end
+
   it 'returns the car price' do
     wrap_vcr do
       expect(subject[:price]).to eq(8698)

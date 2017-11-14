@@ -6,8 +6,9 @@ module Scraping
     class Car
       extend Callable
 
-      def initialize(car_html_document)
-        @car_html_document = car_html_document
+      def initialize(car_page_info)
+        @car_html_document = car_page_info[:html_document]
+        @car_page_link = car_page_info[:href]
       end
 
       def call
@@ -17,13 +18,14 @@ module Scraping
           engine_litres: car_engine_litres,
           mpg: car_mpg,
           price: car_price,
-          image: car_image
+          image: car_image,
+          href: car_page_link
         }
       end
 
       private
 
-      attr_reader :car_html_document
+      attr_reader :car_html_document, :car_page_link
 
       def car_price
         price = car_html_document.css('.ac-money')[0]

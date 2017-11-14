@@ -12,7 +12,10 @@ module Scraping
       end
 
       def call
-        request_car_page
+        {
+          html_document: request_car_page,
+          href: car_href
+        }
       end
 
       def cache_key
@@ -26,12 +29,12 @@ module Scraping
       def request_car_page
         @car_page ||= Nokogiri::HTML(
           open(
-            car_page_link
+            car_href
           )
         )
       end
 
-      def car_page_link
+      def car_href
         path = car_html.css('.ac-vehicle__title a')[0]['href']
         "https://www.arnoldclark.com#{path}"
       end
