@@ -13,20 +13,15 @@ class CarsController < ApplicationController
   attr_reader :number_of_cars
 
   def result
-    { used_cars: used_cars, nearly_new_cars: nearly_new_cars }
-  end
-
-  def used_cars
-    Scraping::ArnoldClarkCars.call(
-      number_of_cars: number_of_cars,
-      car_request: Scraping::ArnoldClarkUsedCarsRequest
-    )
-  end
-
-  def nearly_new_cars
-    Scraping::ArnoldClark::Cars.call(
-      number_of_cars: number_of_cars,
-      car_request: Scraping::ArnoldClarkNearlyNewCarsRequest
-    )
+    results = [
+      Scraping::ArnoldClark::UsedCarsRequest,
+      Scraping::ArnoldClark::NearlyNewCarsRequest
+    ].pmap do |request_type|
+      Scraping::ArnoldClark::Cars.call(
+        number_of_cars: number_of_cars,
+        car_request: request_type
+      )
+    end
+    { used_cars: results[0], nearly_new_cars: results[1] }
   end
 end
