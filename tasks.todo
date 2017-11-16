@@ -1,9 +1,10 @@
 Fixes
 	✔ Make sure we only hit the index page once and then cache it in the rails cache @done (November 7th 2017, 22:10)
 	✔ Figure out why the app is taking 3 seconds to return results @done (November 14th 2017, 21:56)
-	☐ Change the default index route to be more sensible (not used cars)
+	✔ Change the default index route to be more sensible (not used cars) @done (November 16th 2017, 21:35)
 
 Features
 	✔ Get nearly new cars search @done (November 14th 2017, 21:56)
+	☐ Get the list of cars from the drop down and us it to find the car make
 	☐ Get the best buy car
 	☐ Compare a 3yo car to the car we have nearly new and work out depreciation

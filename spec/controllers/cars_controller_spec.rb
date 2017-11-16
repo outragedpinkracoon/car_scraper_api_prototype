@@ -19,7 +19,8 @@ RSpec.describe CarsController, type: :controller do
         expected_response = {
           'used_cars' =>  [
             {
-              'model' => 'Peugeot 2008',
+              'make' => 'Peugeot',
+              'model' => '2008',
               'year' => '2015',
               'engine_litres' => 1.6,
               'mpg' => 76.3,
@@ -29,7 +30,8 @@ RSpec.describe CarsController, type: :controller do
               'href' => 'https://www.arnoldclark.com/used-cars/peugeot/2008/1-6-bluehdi-75-active-5dr/2015/ref/arnel-u-567052'
             },
             {
-              'model' => 'Citroen C4 Cactus',
+              'make' => 'Citroen',
+              'model' => 'C4 Cactus',
               'year' => '2016',
               'engine_litres' => 1.6,
               'mpg' => 80.7,
@@ -41,7 +43,8 @@ RSpec.describe CarsController, type: :controller do
           ],
           'nearly_new_cars' =>  [
             {
-              'model' => 'Citroen C4 Cactus',
+              'make' => 'Citroen',
+              'model' => 'C4 Cactus',
               'year' => '2017',
               'engine_litres' => 1.6,
               'mpg' => 78.5,
@@ -51,7 +54,8 @@ RSpec.describe CarsController, type: :controller do
               'href' => 'https://www.arnoldclark.com/nearly-new-cars/citroen/c4-cactus/1-6-bluehdi-feel-5dr-non-start-stop/2017/ref/arnha-u-22707'
             },
             {
-              'model' => 'Peugeot 208',
+              'make' => 'Peugeot',
+              'model' => '208',
               'year' => '2016',
               'engine_litres' => 1.6,
               'mpg' => 80.7,
@@ -83,7 +87,8 @@ RSpec.describe CarsController, type: :controller do
 
         expected_response = [
           {
-            'model' => 'Peugeot 2008',
+            'make' => 'Peugeot',
+            'model' => '2008',
             'year' => '2015',
             'engine_litres' => 1.6,
             'mpg' => 76.3,
@@ -95,7 +100,8 @@ RSpec.describe CarsController, type: :controller do
             'score' => ''
           },
           {
-            'model' => 'Citroen C4 Cactus',
+            'make' => 'Citroen',
+            'model' => 'C4 Cactus',
             'year' => '2016',
             'engine_litres' => 1.6,
             'mpg' => 80.7,
@@ -107,7 +113,8 @@ RSpec.describe CarsController, type: :controller do
             'score' => ''
           },
           {
-            'model' => 'Citroen C4 Cactus',
+            'make' => 'Citroen',
+            'model' => 'C4 Cactus',
             'year' => '2017',
             'engine_litres' => 1.6,
             'mpg' => 78.5,
@@ -119,7 +126,8 @@ RSpec.describe CarsController, type: :controller do
             'score' => ''
           },
           {
-            'model' => 'Peugeot 208',
+            'make' => 'Peugeot',
+            'model' => '208',
             'year' => '2016',
             'engine_litres' => 1.6,
             'mpg' => 80.7,

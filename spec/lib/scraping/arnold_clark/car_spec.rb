@@ -10,7 +10,13 @@ RSpec.describe Scraping::ArnoldClark::Car do
 
   it 'returns the car model' do
     wrap_vcr do
-      expect(subject[:model]).to eq('Peugeot 2008')
+      expect(subject[:model]).to eq('2008')
+    end
+  end
+
+  it 'returns the car make' do
+    wrap_vcr do
+      expect(subject[:make]).to eq('Peugeot')
     end
   end
 
@@ -42,7 +48,7 @@ RSpec.describe Scraping::ArnoldClark::Car do
 
   it 'returns the car mileage' do
     wrap_vcr do
-      expect(subject[:mileage]).to eq(23125)
+      expect(subject[:mileage]).to eq(23_125)
     end
   end
 

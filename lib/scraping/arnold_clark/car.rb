@@ -13,6 +13,7 @@ module Scraping
 
       def call
         {
+          make: car_make,
           model: car_model,
           year: car_year,
           engine_litres: car_engine_litres,
@@ -33,13 +34,26 @@ module Scraping
         price.text.sub('£', '').sub(',', '').to_i
       end
 
-      def car_model
+      def car_make_and_model
         last_index = title_parts.length - 1
-        title_parts[2..last_index].join(' ')
+        make_and_model_text = title_parts[2..last_index].join(' ')
+        make_and_model = make_and_model_text.split(' ')
+        {
+          make: make_and_model[0],
+          model: make_and_model[1..make_and_model.length - 1].join(' ')
+        }
       end
 
       def car_year
         title_parts[0]
+      end
+
+      def car_model
+        car_make_and_model[:model]
+      end
+
+      def car_make
+        car_make_and_model[:make]
       end
 
       def car_engine_cc
