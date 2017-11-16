@@ -11,7 +11,7 @@ module Scraping
         @car_page_link = car_page_info[:href]
       end
 
-      def call
+      def call # rubocop:disable Metrics/MethodLength
         {
           make: car_make,
           model: car_model,
@@ -36,11 +36,11 @@ module Scraping
 
       def car_make_and_model
         last_index = title_parts.length - 1
-        make_and_model_text = title_parts[2..last_index].join(' ')
-        make_and_model = make_and_model_text.split(' ')
+        text = title_parts[2..last_index].join(' ')
+        parts = text.split(' ')
         {
-          make: make_and_model[0],
-          model: make_and_model[1..make_and_model.length - 1].join(' ')
+          make: parts[0],
+          model: parts[1..parts.length - 1].join(' ')
         }
       end
 
