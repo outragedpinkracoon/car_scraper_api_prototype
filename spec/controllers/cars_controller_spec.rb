@@ -2,8 +2,9 @@ require 'rails_helper'
 require 'vcr'
 
 RSpec.describe CarsController, type: :controller do
-  describe '#index' do
-    let(:perform) { get :used, params: { 'max' => '2' } }
+
+  describe '#by_type' do
+    let(:perform) { get :by_type, params: { 'max' => '2' } }
 
     it 'is successful' do
       wrap_vcr do

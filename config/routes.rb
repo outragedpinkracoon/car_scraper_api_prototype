@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/cars/used', to: 'cars#used'
+  get '/cars/by_type', to: 'cars#by_type'
 end
