@@ -17,6 +17,7 @@ module Scraping
           year: car_year,
           engine_litres: car_engine_litres,
           mpg: car_mpg,
+          mileage: car_mileage,
           price: car_price,
           image: car_image,
           href: car_page_link
@@ -56,6 +57,10 @@ module Scraping
 
       def car_image
         car_html_document.css('.ac-imagethumbnail img').attribute('src').value
+      end
+
+      def car_mileage
+        search_product_summary('Mileage').to_i
       end
 
       def product_summary

@@ -40,6 +40,12 @@ RSpec.describe Scraping::ArnoldClark::Car do
     end
   end
 
+  it 'returns the car mileage' do
+    wrap_vcr do
+      expect(subject[:mileage]).to eq(23125)
+    end
+  end
+
   it 'returns the car image' do
     wrap_vcr do
       expect(subject[:image]).to eq('https://vcache.arnoldclark.com/imageserver/AKRENOE5L6-VUK5/800/f')
