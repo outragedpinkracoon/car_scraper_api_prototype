@@ -30,7 +30,7 @@ module Scraping
 
       def car_price
         price = car_html_document.css('.ac-money')[0]
-        price.text.sub('£', '').to_i
+        price.text.sub('£', '').sub(',', '').to_i
       end
 
       def car_model
