@@ -4,43 +4,24 @@ require_relative '../../lib/scraping/arnold_clark/nearly_new_cars_request'
 
 class CarsController < ApplicationController
   def by_type
-    @number_of_cars = (params[:max] || 5).to_i
-    result = { used_cars: results[0], nearly_new_cars: results[1] }
+    result = {
+      used_cars: car_lists.used,
+      nearly_new_cars: car_lists.nearly_new
+    }
     render json: result
   end
 
   def for_data_processing
-    @number_of_cars = (params[:max] || 5).to_i
-
-    tagged_used = update_fields(results[0], 'used')
-    tagged_nearly_new = update_fields(results[1], 'nearly-new')
-
-    result = tagged_used + tagged_nearly_new
-
-    render json: result
+    render json: car_lists.for_data_processing
   end
 
   private
 
-  attr_reader :number_of_cars
-
-  def update_fields(car_set, tag_name)
-    car_set.pmap do |item|
-      item[:category] = tag_name
-      item[:score] = ''
-      item
-    end
+  def number_of_cars
+    @number_of_cars = (params[:max] || 5).to_i
   end
 
-  def results
-    @results ||= [
-      Scraping::ArnoldClark::UsedCarsRequest,
-      Scraping::ArnoldClark::NearlyNewCarsRequest
-    ].pmap do |request_type|
-      Scraping::ArnoldClark::Cars.call(
-        number_of_cars: number_of_cars,
-        car_request: request_type
-      )
-    end
+  def car_lists
+    @car_lists ||= CarListsGenerator.new(number_of_cars)
   end
 end
