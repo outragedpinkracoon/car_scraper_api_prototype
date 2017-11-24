@@ -7,7 +7,7 @@ module Scraping
     class CarsRequest
       extend Callable
 
-      def initialize(car_index)
+      def initialize(car_index:)
         @car_index = car_index
       end
 

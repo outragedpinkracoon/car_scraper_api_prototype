@@ -12,8 +12,11 @@ module Scraping
 
       def call
         indices.to_a.pmap do |index|
-          car_page_info = car_request.send(:call, index)
-          Car.call(car_page_info)
+          scraping_result = car_request.send(:call, car_index: index)
+          Car.call(
+            car_html_document: scraping_result[:html_document],
+            car_page_link: scraping_result[:href]
+          )
         end
       end
 

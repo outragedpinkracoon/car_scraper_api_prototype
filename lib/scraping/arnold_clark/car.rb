@@ -5,9 +5,9 @@ module Scraping
     class Car
       extend Callable
 
-      def initialize(car_page_info)
-        @car_html_document = car_page_info[:html_document]
-        @car_page_link = car_page_info[:href]
+      def initialize(car_html_document:, car_page_link:)
+        @car_html_document = car_html_document
+        @car_page_link = car_page_link
       end
 
       def call # rubocop:disable Metrics/MethodLength

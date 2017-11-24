@@ -4,9 +4,16 @@ require_relative '../../../../lib/scraping/arnold_clark/car'
 require_relative '../../../../lib/scraping/arnold_clark/used_cars_request'
 
 RSpec.describe Scraping::ArnoldClark::Car do
+  let(:scraping_result) {
+    Scraping::ArnoldClark::UsedCarsRequest.call(car_index: 0)
+  }
+
   let(:subject) do
     VCR.use_cassette 'used_car_list' do
-      described_class.call(Scraping::ArnoldClark::UsedCarsRequest.call(0))
+      described_class.call(
+        car_html_document: scraping_result[:html_document],
+        car_page_link: scraping_result[:href]
+      )
     end
   end
 
