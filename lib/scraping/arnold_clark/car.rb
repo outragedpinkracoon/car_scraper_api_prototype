@@ -1,5 +1,4 @@
 require_relative '../../common/callable'
-require_relative 'cars_request'
 
 module Scraping
   module ArnoldClark

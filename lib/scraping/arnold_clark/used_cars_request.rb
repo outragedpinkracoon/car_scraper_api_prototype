@@ -1,3 +1,4 @@
+require_relative 'cars_request'
 module Scraping
   module ArnoldClark
     class UsedCarsRequest < CarsRequest

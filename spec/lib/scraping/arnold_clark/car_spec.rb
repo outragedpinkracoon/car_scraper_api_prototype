@@ -1,5 +1,7 @@
+require 'rails_helper'
+
 require_relative '../../../../lib/scraping/arnold_clark/car'
-require_relative '../../../../lib/scraping/arnold_clark/cars_request'
+require_relative '../../../../lib/scraping/arnold_clark/used_cars_request'
 
 RSpec.describe Scraping::ArnoldClark::Car do
   let(:subject) do
